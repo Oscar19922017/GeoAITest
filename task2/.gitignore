@@ -1,0 +1,9 @@
+# Datos grandes que NO quiero subir
+q4_2023_txg_ep.pdf
+imgs_raw.zip
+imgs_raw/
+imgs_map/
+imgs_table/
+imgs_picture/
+*.jpg
+*.png

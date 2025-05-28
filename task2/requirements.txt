@@ -1,0 +1,7 @@
+pymupdf>=1.24.4
+pillow
+tqdm
+torch>=2.2.0      # CPU o GPU
+transformers>=4.40
+pandas>=2.2
+numpy>=1.26.4
