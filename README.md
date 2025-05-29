@@ -9,17 +9,25 @@ GeoAITest is a suite of scripts and notebooks designed to automate the extractio
 
 ### **Main Tasks**
 
-- **Task 1: Extraction of Financial and Operational Tables with AI**
+- **Task 1: Extraction and Consolidation of Financial and Operational Tables with AI**
+  - Script/Notebook: `task1/extractor.ipynb`
+  - Consolidation Notebooks:
+    - `task1/consolidar_key_financial_metrics.ipynb`
+    - `task1/consolidar_key_operational_metrics.ipynb`
+    - `task1/consolidar_robust_cash_flow.ipynb`
   - Automates the extraction of key tables (financial and operational) from PDFs, even when they are embedded as images.
   - Utilizes OpenAI's multimodal models (GPT-4o) to identify and structure tabular information, overcoming the limitations of traditional methods.
+  - Consolidates extracted tables across multiple files for unified analysis, depending on the metric of interest.
   - **Results:** Tables extracted in Excel format, ready for analysis, with error handling and robustness for scanned documents.
 
 - **Task 2: Extraction and Classification of Images in PDFs**
+  - Script: `task2/extract_and_classify_improved.py`
   - Automatically extracts all embedded images, rendered tables, and photographs present in PDFs.
   - Classifies each image into categories such as `"map"`, `"table"`, or `"picture"` using the CLIP model (OpenAI, via HuggingFace).
   - **Results:** Images saved and classified, with a summary CSV file and an option to compress results.
 
 - **Task 3: Extraction of Geospatial and Technical Information from Maps and Blueprints**
+  - Script: `task3/geocv_task3.py` (and exploratory notebook: `task3/geocv_task3_1.ipynb`)
   - Detects and extracts geographic coordinates (lat/lon, UTM, DMS) present as text in maps using OCR and regular expressions.
   - For geological blueprints without explicit coordinates, adapts the process to identify drill hole names, drilling intervals, and relevant numeric references using text patterns and regex.
   - **Results:** Image segments with coordinates or references, marked visualizations, and structured CSV files.
@@ -62,7 +70,13 @@ GeoAITest is a suite of scripts and notebooks designed to automate the extractio
   pip install -r requirements.txt
   ```
 - Configure your OpenAI API key and required models.
-- Run each script/notebook according to the desired task.
+- Run each script/notebook according to the desired task:
+  - **Task 1:** Run `task1/extractor.ipynb` (Jupyter Notebook) and the appropriate consolidation notebook(s):
+    - `task1/consolidar_key_financial_metrics.ipynb`
+    - `task1/consolidar_key_operational_metrics.ipynb`
+    - `task1/consolidar_robust_cash_flow.ipynb`
+  - **Task 2:** Run `python task2/extract_and_classify_improved.py --pdf <yourfile.pdf>`
+  - **Task 3:** Run `python task3/geocv_task3.py --input-dir <input_folder> --output-dir <output_folder>`
 
 ---
 
